@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image-icon" href="{% static 'images/icon.jpg' %}"> 
+  <title>CLASSROOM RESERVATION SYSTEM - Classroom</title>
+  <!-- CSS link-->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+/>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="admin.html">
+      <img src="{% static 'images/logoECS.png' %}" alt="" height="80" width="80">
+    </a>
+    <div>
+      <h1>Classroom reservation system</h1>
+      <p>Deprtment of Elecrical Engineering Faculty of Engineering and Industrial Technology<br> Silpakorn University</p>
+    </div>
+  </div>
+
+  <div id="navbar">
+    <a href="/userclassroom">Classroom</a>
+    <a href="/reservationlist">Reservation list</a>
+    <a class="active" href="/booking">Reservation form</a>
+    <a href="/" class="button-logout" style="float:right"><span>Log out</span></a>
+  </div>
+
+  <div class="content" style="text-align: center;">
+      <form method="post" action="booking">
+        {% csrf_token %}
+        <h1 >Classroom reservation form</h1>
+        <div class="wrap-form">
+          <div class="form-group2">
+            <label for="classroom">Classroom</label>
+            <input type="text" class="form-input" name="classroom">
+            <label class="namebooker">Booker name</label>
+            <input type="text" class="form-input" name="namebooker">
+          </div>
+          <div class="form-group2">
+            <label for="datetime">Date time</label>
+            <input type="datetime-local" class="form-input" name="datetime">
+          </div>
+        </div>
+        <div class="wrap-form">
+          <div class="form-group2">
+            <label for="seatsuse">Seats</label>
+            <input type="number" class="form-input" name="seatsuse">
+          </div>
+          <div class="form-group2">
+            <label for="note">Note</label>
+            <input type="text" class="form-input" name="note">
+          </div>
+        </div>
+        <input type="submit" value="Submit" class="button-green">
+        <input type="reset" value="Reset" class="button-red">
+  </div>
+
+
+  <!-- JS link-->
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
